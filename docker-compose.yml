@@ -1,10 +1,15 @@
 version: "3.9"
 
+volumes:
+  db_data:
+    driver: local
+
 services:
   db:
     image: postgres
+    container_name: book-store-postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgres
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
@@ -20,7 +25,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_NAME=postgres
+      - POSTGRES_NAME=bookstore
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     depends_on:
