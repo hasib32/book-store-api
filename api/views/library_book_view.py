@@ -22,11 +22,15 @@ class LibraryBookList(generics.ListAPIView):
         if library is None:
             raise Http404('Library does not exist')
 
-        author = self.request.query_params.get('author')
         queryset = library.books.all()
 
+        author = self.request.query_params.get('author')
         if author is not None:
             queryset = queryset.filter(author=author)
+
+        status = self.request.query_params.get('status')
+        if status is not None:
+            queryset = queryset.filter(status=status)
 
         return queryset
 
