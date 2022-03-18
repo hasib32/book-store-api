@@ -10,6 +10,9 @@ class Library(models.Model):
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name='server_created_by',
+        related_name='library_created_by',
         blank=True
     )
+
+    def __str__(self):
+        return self.name

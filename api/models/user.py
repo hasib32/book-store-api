@@ -69,7 +69,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     all_objects = models.Manager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.email
