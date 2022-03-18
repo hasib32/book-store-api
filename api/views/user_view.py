@@ -2,7 +2,6 @@ from rest_framework import generics, permissions
 
 from api.models import User
 from api.serializers import UserSerializer
-from .base_view import BaseRetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
 
 
@@ -30,13 +29,13 @@ class UserDetailPermission(permissions.BasePermission):
         if request.user.is_admin:
             return True
 
-        return obj.user == request.user
+        return obj.id == request.user.id
 
 
-class UserDetail(BaseRetrieveUpdateDestroyAPIView):
+class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [UserDetailPermission]
+    permission_classes = [permissions.IsAuthenticated, UserDetailPermission]
 
 
 class AuthUserDetail(generics.RetrieveAPIView):
