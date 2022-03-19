@@ -3,11 +3,14 @@ from django.db import models
 
 
 class Book(models.Model):
+    STATUS_AVAILABLE = 'available'
+    STATUS_RENTED = 'rented'
+
     library = models.ForeignKey('api.Library', on_delete=models.CASCADE, related_name='books')
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     isbn = models.CharField(max_length=255)
-    status = models.CharField(max_length=255, default='available')
+    status = models.CharField(max_length=255, default=STATUS_AVAILABLE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(

@@ -1,6 +1,22 @@
 from django.conf import settings
 from django.db import models
 
+from .book import Book
+
+
+class TransactionManager(models.Manager):
+    def create_transaction(self, book, **extra_fields):
+        """
+
+        :param book:
+        :param extra_fields:
+        :return: Transaction
+        """
+        book.status = Book.STATUS_RENTED
+        book.save()
+
+        return self.create(book=book, **extra_fields)
+
 
 class Transaction(models.Model):
     status = models.CharField(max_length=255)
@@ -19,6 +35,8 @@ class Transaction(models.Model):
         related_name='transaction_created_by',
         blank=True
     )
+
+    objects = TransactionManager()
 
     def __str__(self):
         return self.status

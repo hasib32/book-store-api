@@ -22,3 +22,6 @@ class TransactionSerializer(serializers.ModelSerializer):
             'updated_at': {'read_only': True},
             'created_by': {'read_only': True},
         }
+
+    def create(self, validated_data):
+        return Transaction.objects.create_transaction(**validated_data)
