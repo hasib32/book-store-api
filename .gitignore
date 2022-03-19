@@ -91,3 +91,4 @@ db.sqlite3
 
 debug.log
 data
+app/settings.py
