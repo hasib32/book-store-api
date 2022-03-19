@@ -17,7 +17,7 @@ You have two options to run the application
 $ docker-compose up -d
 ```
 ```bash
-In-order to run migration we need to get inside docker container
+First, we need to go inside docker container
 
 $ docker exec -it book-store-api bash
 $ python manage.py migrate
