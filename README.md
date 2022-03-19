@@ -40,7 +40,7 @@ So, first you need to obtain a token.
 #### Token endpoint
 Method | Endpoint | Request Body
 --- | --- | ---
-POST | `/api-token-auth/` | {username, password}
+POST | `/api-token-auth/` | {email, password}
 
 #### API Endpoints:
 Method | Endpoint | Functionality | Filter Params | Ordering
