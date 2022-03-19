@@ -16,8 +16,9 @@ You have two options to run the application
 ```bash
 $ docker-compose up -d
 ```
-In-order to run migration we need to get inside docker container
 ```bash
+In-order to run migration we need to get inside docker container
+
 $ docker exec -it book-store-api bash
 $ python manage.py migrate
 $ python manage.py createsuperuser # Follow the steps
