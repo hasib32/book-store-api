@@ -35,7 +35,7 @@ $ python manage.py runserver
 You should be able to access the API http://127.0.0.1:8000
 ### Using the API Endpoints
 All the endpoints are protected using Django [TokenAuthentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication).
-So, first you need to obtain a token.
+So, first we need to obtain a token.
 
 #### Token endpoint
 Method | Endpoint | Request Body
