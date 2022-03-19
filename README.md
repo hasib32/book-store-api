@@ -17,7 +17,7 @@ You have two options to run the application
 $ docker-compose up -d
 ```
 ```bash
-First, we need to go inside docker container
+First, you need to go inside docker container
 
 $ docker exec -it book-store-api bash
 $ python manage.py migrate
@@ -35,7 +35,7 @@ $ python manage.py runserver
 You should be able to access the API http://127.0.0.1:8000
 ### Using the API Endpoints
 All the endpoints are protected using Django [TokenAuthentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication).
-So, first we need to obtain a token.
+So, first you need to obtain a token.
 
 #### Token endpoint
 Method | Endpoint | Request Body
