@@ -1,14 +1,9 @@
 from rest_framework import generics, filters
+from django.http import Http404
 
 from api.models import Library
 from api.serializers import BookSerializer
-from django.http import Http404
-
-
-def get_id_from_url_path(path):
-    url_as_array = path.split("/")
-    user_id = [int(item) for item in url_as_array if item.isdigit()]
-    return user_id[0]
+from .view_helper import *
 
 
 class LibraryBookList(generics.ListAPIView):
@@ -33,8 +28,3 @@ class LibraryBookList(generics.ListAPIView):
             queryset = queryset.filter(status=status)
 
         return queryset
-
-
-
-
-
